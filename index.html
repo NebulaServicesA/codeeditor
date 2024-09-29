@@ -3,23 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Lua Code Editor</title>
+    <title>Modern Lua IDE</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.30.1/min/vs/loader.min.js"></script>
 </head>
 <body>
-    <header>
-        <button id="settingsBtn">⚙️ Settings</button>
-        <select id="musicSelect">
-            <option value="">Select Music</option>
-            <option value="music1.mp3">Music 1</option>
-            <option value="music2.mp3">Music 2</option>
-            <option value="music3.mp3">Music 3</option>
-        </select>
-    </header>
-    <main>
-        <div id="editor"></div>
-    </main>
+    <div id="app">
+        <nav id="sidebar">
+            <div class="sidebar-icons">
+                <i class="fas fa-file-code" title="File Explorer"></i>
+                <i class="fas fa-search" title="Search"></i>
+                <i class="fas fa-code-branch" title="Source Control"></i>
+                <i class="fas fa-bug" title="Run and Debug"></i>
+                <i class="fas fa-puzzle-piece" title="Extensions"></i>
+            </div>
+            <div class="sidebar-bottom">
+                <i class="fas fa-cog" id="settingsBtn" title="Settings"></i>
+            </div>
+        </nav>
+        <div id="main-container">
+            <div id="file-explorer">
+                <h3>File Explorer</h3>
+                <ul id="file-list">
+                    <li>main.lua</li>
+                    <li>utils.lua</li>
+                    <li>config.lua</li>
+                </ul>
+            </div>
+            <div id="editor-container">
+                <div id="tabs">
+                    <div class="tab active">main.lua</div>
+                    <div class="tab">utils.lua</div>
+                </div>
+                <div id="editor"></div>
+            </div>
+        </div>
+    </div>
+    <div id="status-bar">
+        <div id="left-status">
+            <span id="language-status">Lua</span>
+            <span id="encoding-status">UTF-8</span>
+        </div>
+        <div id="right-status">
+            <span id="line-col-status">Ln 1, Col 1</span>
+            <select id="musicSelect">
+                <option value="">Select Music</option>
+                <option value="music1.mp3">Music 1</option>
+                <option value="music2.mp3">Music 2</option>
+                <option value="music3.mp3">Music 3</option>
+            </select>
+        </div>
+    </div>
     <div id="settingsModal" class="modal">
         <div class="modal-content">
             <h2>Settings</h2>
