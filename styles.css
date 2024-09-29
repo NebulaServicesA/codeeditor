@@ -95,24 +95,6 @@ input:checked + .slider:before {
     line-height: 34px;
 }
 
-.animated-text {
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    letter-spacing: .15em;
-    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
-}
-
 .glow-text {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
 }
@@ -129,4 +111,8 @@ button, select {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.smooth-typing {
+    transition: all 0.1s ease;
 }
