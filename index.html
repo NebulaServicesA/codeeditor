@@ -9,8 +9,8 @@
 </head>
 <body>
     <header>
-        <button id="settingsBtn" class="animated-text">⚙️ Settings</button>
-        <select id="musicSelect" class="animated-text">
+        <button id="settingsBtn">⚙️ Settings</button>
+        <select id="musicSelect">
             <option value="">Select Music</option>
             <option value="music1.mp3">Music 1</option>
             <option value="music2.mp3">Music 2</option>
@@ -22,18 +22,18 @@
     </main>
     <div id="settingsModal" class="modal">
         <div class="modal-content">
-            <h2 class="animated-text">Settings</h2>
+            <h2>Settings</h2>
             <label class="switch">
-                <input type="checkbox" id="typingAnimationToggle" checked>
+                <input type="checkbox" id="smoothTypingToggle" checked>
                 <span class="slider round"></span>
-                <span class="label-text animated-text">Typing Animation</span>
+                <span class="label-text">Smooth Typing</span>
             </label>
             <label class="switch">
                 <input type="checkbox" id="glowTextToggle">
                 <span class="slider round"></span>
-                <span class="label-text animated-text">Glow Text</span>
+                <span class="label-text">Glow Text</span>
             </label>
-            <button id="closeSettingsBtn" class="animated-text">Close</button>
+            <button id="closeSettingsBtn">Close</button>
         </div>
     </div>
     <audio id="audioPlayer"></audio>
