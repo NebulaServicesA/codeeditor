@@ -6,13 +6,16 @@ require(['vs/editor/editor.main'], function() {
         language: 'lua',
         theme: 'vs-dark'
     });
+
+    // Apply initial smooth typing effect
+    applySmoothTyping(true);
 });
 
 // Settings modal
 const settingsBtn = document.getElementById('settingsBtn');
 const settingsModal = document.getElementById('settingsModal');
 const closeSettingsBtn = document.getElementById('closeSettingsBtn');
-const typingAnimationToggle = document.getElementById('typingAnimationToggle');
+const smoothTypingToggle = document.getElementById('smoothTypingToggle');
 const glowTextToggle = document.getElementById('glowTextToggle');
 
 settingsBtn.onclick = () => settingsModal.style.display = 'block';
@@ -24,18 +27,14 @@ window.onclick = (event) => {
     }
 };
 
-// Typing animation toggle
-typingAnimationToggle.onchange = () => {
-    document.querySelectorAll('.animated-text').forEach(el => {
-        el.style.animation = typingAnimationToggle.checked ? '' : 'none';
-    });
+// Smooth typing toggle
+smoothTypingToggle.onchange = () => {
+    applySmoothTyping(smoothTypingToggle.checked);
 };
 
 // Glow text toggle
 glowTextToggle.onchange = () => {
-    document.querySelectorAll('.animated-text').forEach(el => {
-        el.classList.toggle('glow-text', glowTextToggle.checked);
-    });
+    applyGlowText(glowTextToggle.checked);
 };
 
 // Music player
@@ -74,3 +73,27 @@ window.onload = () => {
             .catch(console.error);
     });
 };
+
+// Function to apply smooth typing effect
+function applySmoothTyping(enabled) {
+    const editorElement = document.querySelector('.monaco-editor');
+    if (editorElement) {
+        if (enabled) {
+            editorElement.classList.add('smooth-typing');
+        } else {
+            editorElement.classList.remove('smooth-typing');
+        }
+    }
+}
+
+// Function to apply glow text effect
+function applyGlowText(enabled) {
+    const editorElement = document.querySelector('.monaco-editor');
+    if (editorElement) {
+        if (enabled) {
+            editorElement.classList.add('glow-text');
+        } else {
+            editorElement.classList.remove('glow-text');
+        }
+    }
+}
